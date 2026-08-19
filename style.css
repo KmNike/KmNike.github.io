@@ -1,0 +1,641 @@
+/* ==========================================================================
+   Nikesh M. Kumar — site styles
+
+   HOW THIS FILE IS ORGANIZED
+   1. Design tokens ...... colors, fonts, spacing. Change things HERE.
+   2. Base ............... resets and default element styles
+   3. Layout ............. sidebar + content column
+   4. Sidebar ............ name, links, navigation
+   5. Sections ........... shared section styling
+   6. Components ......... cards, inversion figure, stats, pubs, repos, tags
+   7. Timeline & footer
+   8. Responsive ......... mobile layout
+   9. Accessibility ...... focus states, reduced motion
+
+   If you only want to change how the site LOOKS, you almost certainly
+   only need to edit section 1.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. DESIGN TOKENS
+   ========================================================================== */
+
+:root {
+  /* ---- Color ----
+     Palette is drawn from Aulonocara: deep-water blue and the yellow
+     flash on a male's flank. Change these six values to re-skin the site. */
+  --ink:        #0e1c24;   /* darkest text */
+  --ink-soft:   #33454f;   /* body text */
+  --muted:      #6a7c86;   /* captions, dates, secondary text */
+  --paper:      #f3f6f6;   /* page background */
+  --surface:    #ffffff;   /* cards */
+  --rule:       #dde4e6;   /* hairlines and borders */
+  --accent:     #17697f;   /* links, active nav, headings accent */
+  --accent-ink: #0f4c5c;   /* accent on hover */
+  --flare:      #c8871a;   /* the inverted block, stat numbers. Use sparingly. */
+
+  /* ---- Type ---- */
+  --font-display: "Newsreader", Georgia, serif;
+  --font-body:    "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.85rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  1.75rem;
+
+  /* ---- Spacing & shape ---- */
+  --space:        1rem;
+  --section-gap:  4.5rem;
+  --radius:       6px;
+  --sidebar-w:    280px;
+  --content-max:  720px;
+
+  --shadow: 0 1px 2px rgba(14, 28, 36, 0.05),
+            0 4px 16px rgba(14, 28, 36, 0.04);
+}
+
+/* ---- Dark theme ----
+   Applied when <html data-theme="dark">. The toggle button sets this. */
+:root[data-theme="dark"] {
+  --ink:        #eef4f5;
+  --ink-soft:   #c2cfd4;
+  --muted:      #8397a0;
+  --paper:      #0d1a21;
+  --surface:    #14252e;
+  --rule:       #253b45;
+  --accent:     #5cb9cf;
+  --accent-ink: #8ad3e4;
+  --flare:      #e0a63c;
+  --shadow: none;
+}
+
+
+/* ==========================================================================
+   2. BASE
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+}
+
+p { margin: 0 0 1.1em; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+a:hover {
+  color: var(--accent-ink);
+  border-bottom-color: currentColor;
+}
+
+strong { color: var(--ink); font-weight: 600; }
+
+ul, ol { margin: 0; padding: 0; }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6em 1em;
+  z-index: 100;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+
+
+/* ==========================================================================
+   3. LAYOUT
+   ========================================================================== */
+
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  gap: 3rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content {
+  max-width: var(--content-max);
+  padding: 4rem 0 5rem;
+}
+
+
+/* ==========================================================================
+   4. SIDEBAR
+   ========================================================================== */
+
+.sidebar-inner {
+  position: sticky;
+  top: 0;
+  padding: 4rem 0 2rem;
+}
+
+.portrait {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.25rem;
+  border: 3px solid var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.name {
+  font-size: var(--text-2xl);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.15em;
+}
+.name .degree { color: var(--muted); font-weight: 400; }
+
+.role {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75em;
+}
+
+.affiliation {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 1.5em;
+}
+
+.contact, .links { list-style: none; }
+
+.contact {
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  color: var(--muted);
+  margin-bottom: 1.25em;
+}
+.contact li { margin-bottom: 0.3em; }
+
+.copy-btn {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-left: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+  font-size: var(--text-sm);
+  margin-bottom: 2rem;
+}
+
+/* --- Navigation --- */
+.nav-toggle { display: none; }
+
+.site-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  border-left: 2px solid var(--rule);
+  margin-bottom: 2rem;
+}
+.site-nav a {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--muted);
+  padding: 0.35em 0 0.35em 1em;
+  margin-left: -2px;
+  border-left: 2px solid transparent;
+  border-bottom: none;
+}
+.site-nav a:hover { color: var(--ink); }
+.site-nav a.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+.theme-toggle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  border-radius: var(--radius);
+  padding: 0.4em 0.9em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+
+/* ==========================================================================
+   5. SECTIONS
+   ========================================================================== */
+
+.section { margin-bottom: var(--section-gap); scroll-margin-top: 2rem; }
+
+.section-title {
+  font-size: var(--text-xl);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.lede {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   6. COMPONENTS
+   ========================================================================== */
+
+/* --- Inversion figure (the signature element) --- */
+.inversion-figure { margin: 2rem 0; }
+
+.inversion-strip {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 0.7rem;
+}
+.inversion-strip .seg {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-align: center;
+  padding: 0.7em 0;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--muted);
+}
+.inversion-strip .flipped {
+  background: color-mix(in srgb, var(--flare) 14%, var(--surface));
+  border-color: color-mix(in srgb, var(--flare) 45%, var(--rule));
+  color: var(--flare);
+  font-weight: 500;
+}
+
+.inversion-figure figcaption {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* --- Dual cards (wet lab / computational) --- */
+.dual-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+}
+.card h3 {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 0.9em;
+}
+.card ul { list-style: none; font-size: var(--text-sm); }
+.card li {
+  padding-left: 1em;
+  margin-bottom: 0.45em;
+  position: relative;
+}
+.card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+/* --- Research --- */
+.research-item {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.research-item h3 { font-size: var(--text-lg); margin-bottom: 0.8em; }
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.25em 0.7em;
+  border-radius: 3px;
+  margin-bottom: 0.9em;
+}
+.badge-muted { background: var(--muted); }
+
+/* --- Stats --- */
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  margin: 1.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.stat dt {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--flare);
+  line-height: 1.1;
+}
+.stat dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+/* --- Publications --- */
+.pub-list { list-style: none; }
+.pub {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.pub:last-child { border-bottom: none; }
+
+.pub-year {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--muted);
+  padding-top: 0.2em;
+}
+.pub-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-bottom: 0.3em;
+}
+.pub-authors, .pub-venue {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  margin: 0 0 0.2em;
+}
+.pub-venue a {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  margin-left: 0.4em;
+}
+
+.pub-expand {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--accent);
+  border-radius: var(--radius);
+  padding: 0.5em 1.1em;
+  margin-top: 1.25rem;
+  cursor: pointer;
+}
+.pub-expand:hover { border-color: var(--accent); }
+
+/* --- Repositories --- */
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+}
+.repo {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1.3rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+.repo:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.repo-name {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--accent);
+  margin-bottom: 0.6em;
+}
+.repo-desc {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  margin-bottom: 0.9em;
+}
+.repo-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.repo-tags span {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.15em 0.5em;
+}
+
+/* --- Skills --- */
+.skill-group { margin-bottom: 1.6rem; }
+.skill-group h3 {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 0.7em;
+}
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.tags li {
+  font-size: var(--text-sm);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.25em 0.65em;
+  color: var(--ink-soft);
+}
+
+
+/* ==========================================================================
+   7. TIMELINE & FOOTER
+   ========================================================================== */
+
+.timeline { list-style: none; }
+.timeline-item {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.timeline-item:last-child { border-bottom: none; }
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  padding-top: 0.35em;
+}
+.timeline-item h3 { font-size: var(--text-base); margin-bottom: 0.35em; }
+.timeline-item p { font-size: var(--text-sm); margin: 0; }
+
+.footer {
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+.footer .dot { margin: 0 0.5em; opacity: 0.5; }
+.copyright { font-size: var(--text-xs); opacity: 0.7; }
+
+
+/* ==========================================================================
+   8. RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 880px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 1.25rem;
+  }
+
+  .sidebar-inner {
+    position: static;
+    padding: 2.5rem 0 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .content { padding: 2.5rem 0 3rem; }
+
+  /* Nav collapses behind a Menu button on small screens */
+  .nav-toggle {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    border-radius: var(--radius);
+    padding: 0.4em 0.9em;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+  .site-nav { display: none; }
+  .site-nav.open { display: flex; }
+
+  .pub { grid-template-columns: 1fr; gap: 0.2rem; }
+  .timeline-item { grid-template-columns: 1fr; gap: 0.3rem; }
+  .stat-row { gap: 1.25rem; }
+  .inversion-strip .seg { font-size: 0.65rem; padding: 0.5em 0; }
+}
+
+
+/* ==========================================================================
+   9. ACCESSIBILITY
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Scroll-reveal starting state; script.js removes this once visible. */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media print {
+  .sidebar-inner { position: static; }
+  .site-nav, .theme-toggle, .nav-toggle, .copy-btn, .pub-expand { display: none; }
+  .layout { grid-template-columns: 1fr; }
+  body { background: #fff; color: #000; }
+}

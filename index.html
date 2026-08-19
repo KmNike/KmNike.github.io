@@ -4,787 +4,419 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nikesh M. Kumar | Genomics Researcher</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #FAFAF8;
-    --text: #1C1C1C;
-    --text-secondary: #555;
-    --accent: #1A5276;
-    --accent-light: #2980B9;
-    --accent-bg: #EBF5FB;
-    --card-bg: #FFFFFF;
-    --border: #E0E0E0;
-    --serif: 'Source Serif 4', Georgia, serif;
-    --sans: 'DM Sans', -apple-system, sans-serif;
-    --max-w: 860px;
-  }
+<meta name="description" content="Nikesh M. Kumar, PhD — postdoctoral researcher at Georgia Tech studying chromosomal inversions, sex chromosome evolution, and adaptive radiation in Lake Malawi cichlids.">
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+<!-- Open Graph: controls the preview card when someone shares your link -->
+<meta property="og:title" content="Nikesh M. Kumar | Genomics Researcher">
+<meta property="og:description" content="Chromosomal inversions, sex chromosome evolution, and adaptive radiation in Lake Malawi cichlids.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kmnike.github.io">
 
-  body {
-    font-family: var(--sans);
-    color: var(--text);
-    background: var(--bg);
-    line-height: 1.7;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-  }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 
-  /* === HERO === */
-  .hero {
-    background: linear-gradient(165deg, #0B2E4D 0%, #1A5276 40%, #217DBB 100%);
-    color: white;
-    padding: 80px 24px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background:
-      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.04) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 40%);
-  }
-
-  .hero-inner {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: 2.8rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-  }
-
-  .hero .subtitle {
-    font-size: 1.15rem;
-    font-weight: 400;
-    opacity: 0.9;
-    margin-bottom: 20px;
-  }
-
-  .hero .contact-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-    font-size: 0.88rem;
-    opacity: 0.8;
-  }
-
-  .hero .contact-row a {
-    color: white;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-  }
-
-  .hero .contact-row a:hover {
-    border-color: white;
-  }
-
-  /* === NAV === */
-  nav {
-    background: var(--card-bg);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  nav .nav-inner {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    display: flex;
-    gap: 32px;
-    padding: 0 24px;
-    overflow-x: auto;
-  }
-
-  nav a {
-    display: block;
-    padding: 14px 0;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-secondary);
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    white-space: nowrap;
-    transition: all 0.2s;
-  }
-
-  nav a:hover, nav a.active {
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-
-  /* === SECTIONS === */
-  section {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 56px 24px;
-  }
-
-  section + section {
-    border-top: 1px solid var(--border);
-  }
-
-  h2 {
-    font-family: var(--serif);
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 24px;
-    letter-spacing: -0.01em;
-  }
-
-  h3 {
-    font-family: var(--sans);
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-
-  p { margin-bottom: 14px; color: var(--text-secondary); }
-
-  /* === ABOUT === */
-  .about-text {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    line-height: 1.85;
-    color: var(--text);
-  }
-
-  /* === DUAL CARDS === */
-  .dual-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 16px;
-  }
-
-  .expertise-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 28px;
-  }
-
-  .expertise-card h3 {
-    color: var(--accent);
-    font-size: 1rem;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .expertise-card h3 .icon {
-    width: 28px;
-    height: 28px;
-    background: var(--accent-bg);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-  }
-
-  .expertise-card ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .expertise-card li {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    padding: 3px 0;
-    line-height: 1.5;
-  }
-
-  .expertise-card li::before {
-    content: '▪';
-    color: var(--accent-light);
-    margin-right: 8px;
-    font-size: 0.7rem;
-  }
-
-  /* === RESEARCH HIGHLIGHT === */
-  .research-highlight {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 32px;
-    margin-bottom: 24px;
-  }
-
-  .research-highlight .badge {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 3px;
-    margin-bottom: 12px;
-  }
-
-  .research-highlight h3 {
-    font-family: var(--serif);
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-
-  .research-highlight p {
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  .stat-row {
-    display: flex;
-    gap: 24px;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-    flex-wrap: wrap;
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat .num {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent);
-    display: block;
-  }
-
-  .stat .label {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  /* === PUBLICATIONS === */
-  .pub {
-    padding: 16px 0;
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  .pub:last-child { border-bottom: none; }
-
-  .pub .journal {
-    font-weight: 600;
-    color: var(--accent);
-  }
-
-  .pub .year {
-    display: inline-block;
-    background: var(--accent-bg);
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 3px;
-    margin-right: 6px;
-  }
-
-  .pub .title {
-    font-family: var(--serif);
-    font-size: 1.02rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-
-  .pub .authors {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-  }
-
-  .pub .authors strong { color: var(--text); }
-
-  .pub a {
-    color: var(--accent-light);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
-
-  .pub a:hover { text-decoration: underline; }
-
-  /* === REPO CARDS === */
-  .repo-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 16px;
-  }
-
-  .repo-card {
-    display: block;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px;
-    text-decoration: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .repo-card:hover {
-    border-color: var(--accent-light);
-    box-shadow: 0 2px 12px rgba(26, 82, 118, 0.08);
-  }
-
-  .repo-name {
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 6px;
-  }
-
-  .repo-desc {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.55;
-    margin-bottom: 12px;
-  }
-
-  .repo-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .repo-tag {
-    background: #f0f0f0;
-    color: var(--text-secondary);
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 2px 8px;
-    border-radius: 3px;
-  }
-
-  /* === SKILLS TAGS === */
-  .skill-group { margin-bottom: 20px; }
-
-  .skill-group h4 {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    margin-bottom: 10px;
-    font-weight: 600;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .tag {
-    background: var(--accent-bg);
-    color: var(--accent);
-    font-size: 0.82rem;
-    font-weight: 500;
-    padding: 4px 12px;
-    border-radius: 4px;
-    white-space: nowrap;
-  }
-
-  /* === TIMELINE === */
-  .timeline-item {
-    padding: 16px 0 16px 24px;
-    border-left: 2px solid var(--border);
-    position: relative;
-  }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -5px;
-    top: 22px;
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    border-radius: 50%;
-  }
-
-  .timeline-item .date {
-    font-size: 0.8rem;
-    color: var(--accent-light);
-    font-weight: 600;
-  }
-
-  /* === FOOTER === */
-  footer {
-    background: #0B2E4D;
-    color: rgba(255,255,255,0.7);
-    text-align: center;
-    padding: 32px 24px;
-    font-size: 0.85rem;
-  }
-
-  footer a {
-    color: rgba(255,255,255,0.9);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-  }
-
-  /* === RESPONSIVE === */
-  @media (max-width: 640px) {
-    .hero h1 { font-size: 2rem; }
-    .dual-cards { grid-template-columns: 1fr; }
-    .stat-row { gap: 16px; }
-    h2 { font-size: 1.35rem; }
-    section { padding: 40px 20px; }
-    .hero .contact-row { gap: 12px; font-size: 0.82rem; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-inner">
-    <h1>Nikesh M. Kumar, Ph.D.</h1>
-    <div class="subtitle">Bioinformatics &middot; Georgia Institute of Technology</div>
-    <div class="contact-row">
-      <span>&#x1F4E7; <a href="mailto:nkumar317@gatech.edu">nkumar317@gatech.edu</a></span>
-      <span>&#x1F4CD; Atlanta, GA</span>
-      <span><a href="https://github.com/KmNike/KmNike">GitHub</a></span>
-      <span><a href="https://scholar.google.com/citations?user=DFNpUuIAAAAJ&hl=en">Google Scholar</a></span>
-    </div>
-  </div>
-</header>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
-    <a href="#code">Code</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-  </div>
-</nav>
+<div class="layout">
 
-<!-- ABOUT -->
-<section id="about">
-  <h2>About</h2>
-  <p class="about-text">
-    I am a genomics researcher with <strong>8 years of wet lab</strong> and <strong>6 years of computational experience</strong> studying structural variation and its role in evolution. My PhD work in the <a href="https://mcgrathlab.biosci.gatech.edu/" style="color: var(--accent);">McGrath Lab</a> at Georgia Tech combines Bionano optical genome mapping, PacBio HiFi sequencing, and Illumina short-read analysis to understand how large chromosomal inversions shape the adaptive radiation of Lake Malawi cichlid fishes.
-  </p>
-  <p class="about-text">
-    I am driven by the challenge of connecting bench-level experimental design with computational pipelines that extract biological insight from complex genomic datasets. I defended my dissertation in <strong>May 2026</strong>.
-  </p>
+  <!-- ============================================================
+       SIDEBAR: identity + navigation. Stays fixed on desktop.
+       ============================================================ -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
 
-  <div class="dual-cards">
-    <div class="expertise-card">
-      <h3><span class="icon">&#x1F9EC;</span> Wet Lab</h3>
-      <ul>
-        <li>Bionano Saphyr optical genome mapping</li>
-        <li>HMW DNA extraction (nanobind, bead, column)</li>
-        <li>NGS library preparation</li>
-        <li>Fluorescent in situ hybridization</li>
-        <li>CRISPR Editing</li>
-        <li>Dissection, cell culture, cloning</li>
+      <!-- To add a photo: put headshot.jpg next to this file and
+           uncomment the line below. -->
+      <!-- <img class="portrait" src="headshot.jpg" alt="Nikesh M. Kumar"> -->
+
+      <h1 class="name">Nikesh M. Kumar<span class="degree">, Ph.D.</span></h1>
+      <p class="role">Postdoctoral Researcher</p>
+      <p class="affiliation">
+        <a href="https://mcgrathlab.biosci.gatech.edu/" target="_blank" rel="noopener">McGrath Lab</a><br>
+        School of Biological Sciences<br>
+        Georgia Institute of Technology
+      </p>
+
+      <ul class="contact">
+        <li><a href="mailto:nkumar317@gatech.edu">nkumar317@gatech.edu</a>
+            <button class="copy-btn" data-copy="nkumar317@gatech.edu" title="Copy email">copy</button></li>
+        <li>Atlanta, Georgia</li>
       </ul>
-    </div>
-    <div class="expertise-card">
-      <h3><span class="icon">&#x1F4BB;</span> Computational</h3>
-      <ul>
-        <li>De novo genome assembly &amp; scaffolding</li>
-        <li>GATK variant calling &amp; joint genotyping</li>
-        <li>Population genetics (PCA, Fst, d<sub>XY</sub>)</li>
-        <li>Phylogenetics (IQ-TREE2, ML trees)</li>
-        <li>Python, R, Bash pipelines</li>
-        <li>Structural variant discovery (OGM)</li>
+
+      <ul class="links">
+        <li><a href="https://github.com/KmNike" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://scholar.google.com/citations?user=DFNpUuIAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0000-0003-1932-3910" target="_blank" rel="noopener">ORCID</a></li>
+        <li><a href="https://www.linkedin.com/in/nikeshkumar" target="_blank" rel="noopener">LinkedIn</a></li>
+        <!-- Add your CV: drop Kumar_CV.pdf next to this file, then uncomment -->
+        <!-- <li><a href="Kumar_CV.pdf" target="_blank" rel="noopener">CV</a></li> -->
       </ul>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#code">Code</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+      </nav>
+
+      <button class="theme-toggle" aria-label="Switch color theme">
+        <span class="theme-label">Dark</span>
+      </button>
     </div>
-  </div>
-</section>
+  </aside>
 
-<!-- RESEARCH -->
-<section id="research">
-  <h2>Research</h2>
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main id="main" class="content">
 
-  <div class="research-highlight">
-    <span class="badge">PhD Thesis</span>
-    <h3>Structural Variation in Adaptive Radiation: Determining the Potential Role of Large Genomic Inversions in Lake Malawi Cichlids</h3>
-    <p>
-      Lake Malawi is home to one of the most dramatic vertebrate radiations on Earth: over <strong>800 cichlid species</strong> evolved in about <strong>1.2 million years</strong>. Structural variants can drive this kind of evolutionary change, and large chromosomal inversions are particularly consequential, since suppressed recombination between inverted and non-inverted regions can lock co-adaptive alleles into a single inherited block. My work identified <strong>six large inversions</strong> spanning over <strong>12% of the cichlid genome</strong> and demonstrated their roles in habitat adaptation, lineage divergence, and sex determination.
-    </p>
-    <p>
-      I discovered these inversions using Bionano optical genome mapping on a discovery cohort of 12 species and validated them with <strong>6 de novo PacBio HiFi genome assemblies</strong>. Short-read genotyping <strong>365 individuals</strong> across <strong>118 species</strong> from all seven major lake ecogroups revealed that inversion genotype correlates with habitat preference, consistent with these variants facilitating the separation of major lineages into distinct lake habitats. Three of these inversions likely spread between lineages via ancient hybridization.
-    </p>
-    <p>
-      I also found that polymorphic inversions are associated with sex determination. In the deep benthic <em>Aulonocara</em> sp. &lsquo;chitande type north&rsquo; Nkhata Bay, the chromosome 10 inversion functions as an <strong>XY sex-determination system</strong>, with males heterozygous for the inversion and females homozygous. To map the causal locus inside a region that does not recombine, I backcrossed this species to one lacking the inversion, restoring meiotic recombination across the male-specific Y. QTL mapping narrowed the locus to <strong>2 Mb</strong>, and fine-mapping with informative recombinants reduced it to a <strong>200 kb</strong> window containing <strong>three candidate genes</strong>, including a long non-coding RNA carrying large transposable element derived indels found only on the putative Y. Together, this work shows that chromosomal inversions shape both local adaptation and the origin of new sex chromosomes within a single adaptive radiation.
-    </p>
-    <div class="stat-row">
-      <div class="stat"><span class="num">6</span><span class="label">Inversions Found</span></div>
-      <div class="stat"><span class="num">365</span><span class="label">Samples Analyzed</span></div>
-      <div class="stat"><span class="num">11</span><span class="label">Species Surveyed</span></div>
-      <div class="stat"><span class="num">6</span><span class="label">Genomes Assembled</span></div>
-      <div class="stat"><span class="num">97%</span><span class="label">Genome Anchored</span></div>
-    </div>
-  </div>
+    <!-- ---------- ABOUT ---------- -->
+    <section id="about" class="section">
+      <h2 class="section-title">About</h2>
 
-  <div class="research-highlight">
-    <span class="badge" style="background: #555;">Previous Work</span>
-    <h3>HIV Reservoir Characterization &mdash; CFAR, UC San Diego</h3>
-    <p>
-      Studied the HIV reservoir in terminal patient tissues from people living with HIV under long-term antiretroviral therapy. Used droplet digital PCR and sequence alignment to quantify suppressed viral load and characterize reservoir diversity across tissues.
-    </p>
-  </div>
-</section>
+      <p class="lede">
+        I study how large structural variants reshape genomes and drive evolution,
+        combining population genomics with wet lab molecular biology.
+      </p>
 
-<!-- PUBLICATIONS -->
-<section id="publications">
-  <h2>Publications</h2>
+      <p>
+        I am a genomics researcher with <strong>8 years of wet lab</strong> and
+        <strong>6 years of computational experience</strong> studying structural variation
+        and its role in evolution. My work in the
+        <a href="https://mcgrathlab.biosci.gatech.edu/" target="_blank" rel="noopener">McGrath Lab</a>
+        at Georgia Tech combines Bionano optical genome mapping, PacBio HiFi sequencing,
+        and Illumina short-read analysis to understand how large chromosomal inversions
+        shape the adaptive radiation of Lake Malawi cichlid fishes.
+      </p>
 
-  <div class="pub">
-    <span class="year">2025</span>
-    <div class="title">Large inversions in Lake Malawi cichlids are associated with habitat preference, lineage, and sex determination</div>
-    <div class="authors"><strong>Kumar NM</strong>, Cooper TL, Kocher TD, Streelman JT, McGrath PT</div>
-    <span class="journal">eLife</span> 14:RP104923 &nbsp;
-    <a href="https://doi.org/10.7554/eLife.104923.2">doi &rarr;</a>
-  </div>
+      <p>
+        I am driven by the challenge of connecting bench-level experimental design with
+        computational pipelines that extract biological insight from complex genomic
+        datasets. I defended my dissertation in <strong>May 2026</strong>.
+      </p>
 
-  <div class="pub">
-    <span class="year">2025</span>
-    <div class="title">A chromosome inversion creates a supergene for sex and colour in Lake Malawi cichlids</div>
-    <div class="authors">Behrens KA, Jailwala S, Clark FE, Meyer AC, <strong>Kumar NM</strong>, et al.</div>
-    <span class="journal">Molecular Ecology</span> 34:e17821 &nbsp;
-    <a href="https://doi.org/10.1111/mec.17821">doi &rarr;</a>
-  </div>
+      <!-- SIGNATURE ELEMENT: a schematic of a chromosomal inversion.
+           Edit the letters or count below; the ".flipped" class shades
+           and reverses the inverted block. -->
+      <figure class="inversion-figure">
+        <div class="inversion-strip" aria-hidden="true">
+          <span class="seg">A</span>
+          <span class="seg">B</span>
+          <span class="seg flipped">E</span>
+          <span class="seg flipped">D</span>
+          <span class="seg flipped">C</span>
+          <span class="seg">F</span>
+          <span class="seg">G</span>
+        </div>
+        <figcaption>
+          An inversion flips a chromosomal segment end to end. Recombination is suppressed
+          across the boundary, so every variant inside the block is inherited together.
+        </figcaption>
+      </figure>
 
-  <div class="pub">
-    <span class="year">2023</span>
-    <div class="title">Evaluation of archival HIV DNA in brain and lymphoid tissues</div>
-    <div class="authors">Oliveira MF, Pankow A, Vollbrecht T, <strong>Kumar NM</strong>, et al.</div>
-    <span class="journal">Journal of Virology</span> 97(6):e0054323 &nbsp;
-    <a href="https://doi.org/10.1128/jvi.00543-23">doi &rarr;</a>
-  </div>
-
-  <div class="pub">
-    <span class="year">2020</span>
-    <div class="title">Inconsistent reversal of HIV-1 latency ex vivo by antigens of HIV-1, CMV, and other infectious agents</div>
-    <div class="authors">Vollbrecht T, Angerstein AO, Menke B, <strong>Kumar NM</strong>, et al.</div>
-    <span class="journal">Retrovirology</span> 17(1):36 &nbsp;
-    <a href="https://doi.org/10.1186/s12977-020-00545-x">doi &rarr;</a>
-  </div>
-
-  <div class="pub">
-    <span class="year">2019</span>
-    <div class="title">Long-read amplicon denoising</div>
-    <div class="authors">Kumar V, Vollbrecht T, Chernyshev M, Mohan S, Hanst B, Bavafa N, Lorenzo A, <strong>Kumar N</strong>, et al.</div>
-    <span class="journal">Nucleic Acids Research</span> 47(18):e104 &nbsp;
-    <a href="https://doi.org/10.1093/nar/gkz657">doi &rarr;</a>
-  </div>
-</section>
-
-<!-- CODE & REPOS -->
-<section id="code">
-  <h2>Code &amp; Repositories</h2>
-  <p>Analysis pipelines, tools, and protocols from my research — available on <a href="https://github.com/KmNike" style="color: var(--accent);">GitHub</a>.</p>
-
-  <div class="repo-grid">
-    <a href="https://github.com/nikeshkumar/cichlid-inversion-analysis" class="repo-card" target="_blank">
-      <div class="repo-name">cichlid-inversion-analysis</div>
-      <div class="repo-desc">Full analysis pipeline for the eLife paper — GATK variant calling, PCA-based inversion genotyping, phylogenetics, and population genetics across 365 Lake Malawi cichlid samples.</div>
-      <div class="repo-tags">
-        <span class="repo-tag">Python</span>
-        <span class="repo-tag">Bash</span>
-        <span class="repo-tag">GATK</span>
-        <span class="repo-tag">plink2</span>
+      <div class="dual-cards">
+        <div class="card">
+          <h3>Wet Lab</h3>
+          <ul>
+            <li>Bionano Saphyr optical genome mapping</li>
+            <li>HMW DNA extraction (nanobind, bead, column)</li>
+            <li>NGS library preparation</li>
+            <li>Fluorescent in situ hybridization</li>
+            <li>CRISPR editing</li>
+            <li>Dissection, cell culture, cloning</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Computational</h3>
+          <ul>
+            <li>De novo genome assembly &amp; scaffolding</li>
+            <li>GATK variant calling &amp; joint genotyping</li>
+            <li>Population genetics (PCA, F<sub>ST</sub>, d<sub>XY</sub>)</li>
+            <li>Phylogenetics (IQ-TREE2, ML trees)</li>
+            <li>Python, R, Bash pipelines</li>
+            <li>Structural variant discovery (OGM)</li>
+          </ul>
+        </div>
       </div>
-    </a>
+    </section>
 
-    <a href="https://github.com/nikeshkumar/inversion-genotyper" class="repo-card" target="_blank">
-      <div class="repo-name">inversion-genotyper</div>
-      <div class="repo-desc">Standalone Python tool for genotyping large chromosomal inversions from short-read VCF data using PCA. Installable via pip with a CLI interface.</div>
-      <div class="repo-tags">
-        <span class="repo-tag">Python</span>
-        <span class="repo-tag">CLI tool</span>
-        <span class="repo-tag">PyPI</span>
+    <!-- ---------- RESEARCH ---------- -->
+    <section id="research" class="section">
+      <h2 class="section-title">Research</h2>
+
+      <article class="research-item">
+        <span class="badge">PhD Thesis</span>
+        <h3>Structural Variation in Adaptive Radiation: Determining the Potential Role of Large Genomic Inversions in Lake Malawi Cichlids</h3>
+
+        <p>
+          Lake Malawi is home to one of the most dramatic vertebrate radiations on Earth:
+          over <strong>800 cichlid species</strong> evolved in about <strong>1.2 million years</strong>.
+          Structural variants can drive this kind of evolutionary change, and large chromosomal
+          inversions are particularly consequential, since suppressed recombination between
+          inverted and non-inverted regions can lock co-adaptive alleles into a single inherited
+          block. My work identified <strong>six large inversions</strong> spanning over
+          <strong>12% of the cichlid genome</strong> and demonstrated their roles in habitat
+          adaptation, lineage divergence, and sex determination.
+        </p>
+        <p>
+          I discovered these inversions using Bionano optical genome mapping on a discovery
+          cohort of 12 species and validated them with <strong>6 de novo PacBio HiFi genome
+          assemblies</strong>. Short-read genotyping <strong>365 individuals</strong> across
+          <strong>118 species</strong> from all seven major lake ecogroups revealed that
+          inversion genotype correlates with habitat preference, consistent with these variants
+          facilitating the separation of major lineages into distinct lake habitats. Three of
+          these inversions likely spread between lineages via ancient hybridization.
+        </p>
+        <p>
+          I also found that polymorphic inversions are associated with sex determination. In the
+          deep benthic <em>Aulonocara</em> sp. &lsquo;chitande type north&rsquo; Nkhata Bay, the
+          chromosome 10 inversion functions as an <strong>XY sex-determination system</strong>,
+          with males heterozygous for the inversion and females homozygous. To map the causal
+          locus inside a region that does not recombine, I backcrossed this species to one
+          lacking the inversion, restoring meiotic recombination across the male-specific Y.
+          QTL mapping narrowed the locus to <strong>2 Mb</strong>, and fine-mapping with
+          informative recombinants reduced it to a <strong>200 kb</strong> window containing
+          <strong>three candidate genes</strong>, including a long non-coding RNA carrying large
+          transposable element derived indels found only on the putative Y. Together, this work
+          shows that chromosomal inversions shape both local adaptation and the origin of new
+          sex chromosomes within a single adaptive radiation.
+        </p>
+
+        <!-- Numbers are pulled straight from the text above. Keep them in sync. -->
+        <dl class="stat-row">
+          <div class="stat"><dt>6</dt><dd>inversions found</dd></div>
+          <div class="stat"><dt>365</dt><dd>samples genotyped</dd></div>
+          <div class="stat"><dt>118</dt><dd>species surveyed</dd></div>
+          <div class="stat"><dt>6</dt><dd>genomes assembled</dd></div>
+          <div class="stat"><dt>200 kb</dt><dd>locus interval</dd></div>
+        </dl>
+      </article>
+
+      <article class="research-item">
+        <span class="badge badge-muted">Previous Work</span>
+        <h3>HIV Reservoir Characterization &mdash; CFAR, UC San Diego</h3>
+        <p>
+          Studied the HIV reservoir in terminal patient tissues from people living with HIV
+          under long-term antiretroviral therapy. Used droplet digital PCR and sequence
+          alignment to quantify suppressed viral load and characterize reservoir diversity
+          across tissues.
+        </p>
+      </article>
+    </section>
+
+    <!-- ---------- PUBLICATIONS ---------- -->
+    <section id="publications" class="section">
+      <h2 class="section-title">Publications</h2>
+
+      <!-- To add a paper, copy one .pub block and edit it.
+           Newest first. Your name is wrapped in <strong> so it stands out. -->
+      <ol class="pub-list">
+        <li class="pub">
+          <span class="pub-year">2025</span>
+          <div class="pub-body">
+            <h3 class="pub-title">Large inversions in Lake Malawi cichlids are associated with habitat preference, lineage, and sex determination</h3>
+            <p class="pub-authors"><strong>Kumar NM</strong>, Cooper TL, Kocher TD, Streelman JT, McGrath PT</p>
+            <p class="pub-venue"><em>eLife</em> 14:RP104923
+              <a href="https://doi.org/10.7554/eLife.104923.2" target="_blank" rel="noopener">doi</a></p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-year">2025</span>
+          <div class="pub-body">
+            <h3 class="pub-title">A chromosome inversion creates a supergene for sex and colour in Lake Malawi cichlids</h3>
+            <p class="pub-authors">Behrens KA, Jailwala S, Clark FE, Meyer AC, <strong>Kumar NM</strong>, et al.</p>
+            <p class="pub-venue"><em>Molecular Ecology</em> 34:e17821
+              <a href="https://doi.org/10.1111/mec.17821" target="_blank" rel="noopener">doi</a></p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-year">2023</span>
+          <div class="pub-body">
+            <h3 class="pub-title">Evaluation of archival HIV DNA in brain and lymphoid tissues</h3>
+            <p class="pub-authors">Oliveira MF, Pankow A, Vollbrecht T, <strong>Kumar NM</strong>, et al.</p>
+            <p class="pub-venue"><em>Journal of Virology</em> 97(6):e0054323
+              <a href="https://doi.org/10.1128/jvi.00543-23" target="_blank" rel="noopener">doi</a></p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-year">2020</span>
+          <div class="pub-body">
+            <h3 class="pub-title">Inconsistent reversal of HIV-1 latency ex vivo by antigens of HIV-1, CMV, and other infectious agents</h3>
+            <p class="pub-authors">Vollbrecht T, Angerstein AO, Menke B, <strong>Kumar NM</strong>, et al.</p>
+            <p class="pub-venue"><em>Retrovirology</em> 17(1):36
+              <a href="https://doi.org/10.1186/s12977-020-00545-x" target="_blank" rel="noopener">doi</a></p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-year">2019</span>
+          <div class="pub-body">
+            <h3 class="pub-title">Long-read amplicon denoising</h3>
+            <p class="pub-authors">Kumar V, Vollbrecht T, Chernyshev M, Mohan S, Hanst B, Bavafa N, Lorenzo A, <strong>Kumar N</strong>, et al.</p>
+            <p class="pub-venue"><em>Nucleic Acids Research</em> 47(18):e104
+              <a href="https://doi.org/10.1093/nar/gkz657" target="_blank" rel="noopener">doi</a></p>
+          </div>
+        </li>
+      </ol>
+
+      <button class="pub-expand" hidden>Show all publications</button>
+    </section>
+
+    <!-- ---------- CODE ---------- -->
+    <section id="code" class="section">
+      <h2 class="section-title">Code</h2>
+      <p>
+        Analysis pipelines, tools, and protocols from my research, available on
+        <a href="https://github.com/KmNike" target="_blank" rel="noopener">GitHub</a>.
+      </p>
+
+      <!-- NOTE: these repos do not exist yet. Either create them or delete
+           the cards below before sharing this site. -->
+      <div class="repo-grid">
+        <a class="repo" href="https://github.com/KmNike/cichlid-inversion-analysis" target="_blank" rel="noopener">
+          <span class="repo-name">cichlid-inversion-analysis</span>
+          <span class="repo-desc">Full analysis pipeline behind the eLife paper: GATK variant calling, PCA-based inversion genotyping, phylogenetics, and population genetics across 365 Lake Malawi cichlid samples.</span>
+          <span class="repo-tags"><span>Python</span><span>Bash</span><span>GATK</span><span>plink2</span></span>
+        </a>
+
+        <a class="repo" href="https://github.com/KmNike/inversion-genotyper" target="_blank" rel="noopener">
+          <span class="repo-name">inversion-genotyper</span>
+          <span class="repo-desc">Standalone Python tool for genotyping large chromosomal inversions from short-read VCF data using PCA. Installable via pip with a CLI.</span>
+          <span class="repo-tags"><span>Python</span><span>CLI</span><span>PyPI</span></span>
+        </a>
+
+        <a class="repo" href="https://github.com/KmNike/bionano-ogm-cichlid" target="_blank" rel="noopener">
+          <span class="repo-name">bionano-ogm-cichlid</span>
+          <span class="repo-desc">Optimized Bionano Saphyr optical genome mapping protocol for non-model organisms with nucleated blood cells.</span>
+          <span class="repo-tags"><span>Protocol</span><span>Wet lab</span><span>Bionano</span></span>
+        </a>
       </div>
-    </a>
+    </section>
 
-    <a href="https://github.com/nikeshkumar/bionano-ogm-cichlid" class="repo-card" target="_blank">
-      <div class="repo-name">bionano-ogm-cichlid</div>
-      <div class="repo-desc">Optimized Bionano Saphyr optical genome mapping protocol for non-model organisms with nucleated blood cells.</div>
-      <div class="repo-tags">
-        <span class="repo-tag">Protocol</span>
-        <span class="repo-tag">Wet lab</span>
-        <span class="repo-tag">Bionano</span>
+    <!-- ---------- SKILLS ---------- -->
+    <section id="skills" class="section">
+      <h2 class="section-title">Technical Skills</h2>
+
+      <div class="skill-group">
+        <h3>Programming &amp; Scripting</h3>
+        <ul class="tags">
+          <li>Python</li><li>R</li><li>Bash</li><li>pandas</li><li>numpy</li>
+          <li>scikit-allel</li><li>cyvcf2</li><li>biopython</li><li>plotly</li><li>seaborn</li>
+        </ul>
       </div>
-    </a>
-  </div>
-</section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <h2>Technical Skills</h2>
+      <div class="skill-group">
+        <h3>Genomics &amp; Bioinformatics</h3>
+        <ul class="tags">
+          <li>GATK</li><li>plink2</li><li>bcftools</li><li>samtools</li><li>BWA</li>
+          <li>minimap2</li><li>hifiasm</li><li>Inspector</li><li>IQ-TREE2</li>
+          <li>vcf2phylip</li><li>D-GENIES</li><li>Bionano Access</li><li>Git</li>
+        </ul>
+      </div>
 
-  <div class="skill-group">
-    <h4>Programming &amp; Scripting</h4>
-    <div class="tags">
-      <span class="tag">Python</span>
-      <span class="tag">R</span>
-      <span class="tag">Bash</span>
-      <span class="tag">pandas</span>
-      <span class="tag">numpy</span>
-      <span class="tag">scikit-allel</span>
-      <span class="tag">cyvcf2</span>
-      <span class="tag">biopython</span>
-      <span class="tag">plotly</span>
-      <span class="tag">seaborn</span>
-    </div>
-  </div>
+      <div class="skill-group">
+        <h3>Sequencing Platforms</h3>
+        <ul class="tags">
+          <li>Bionano Saphyr</li><li>PacBio Sequel II</li><li>PacBio Revio</li>
+          <li>Illumina NovaSeq 6000</li><li>Element AVITI</li>
+        </ul>
+      </div>
 
-  <div class="skill-group">
-    <h4>Genomics &amp; Bioinformatics Tools</h4>
-    <div class="tags">
-      <span class="tag">GATK</span>
-      <span class="tag">plink2</span>
-      <span class="tag">bcftools</span>
-      <span class="tag">samtools</span>
-      <span class="tag">BWA</span>
-      <span class="tag">minimap2</span>
-      <span class="tag">hifiasm</span>
-      <span class="tag">Inspector</span>
-      <span class="tag">IQ-TREE2</span>
-      <span class="tag">vcf2phylip</span>
-      <span class="tag">D-GENIES</span>
-      <span class="tag">Bionano Access</span>
-      <span class="tag">Git</span>
-    </div>
-  </div>
+      <div class="skill-group">
+        <h3>Analysis Methods</h3>
+        <ul class="tags">
+          <li>De novo genome assembly</li><li>Hybrid scaffolding</li>
+          <li>Structural variant discovery</li><li>Variant calling &amp; joint genotyping</li>
+          <li>PCA-based genotyping</li><li>ML phylogenetics</li>
+          <li>Population genetics (F<sub>ST</sub>, d<sub>XY</sub>)</li><li>Genome alignment</li>
+        </ul>
+      </div>
 
-  <div class="skill-group">
-    <h4>Sequencing Platforms</h4>
-    <div class="tags">
-      <span class="tag">Bionano Saphyr</span>
-      <span class="tag">PacBio Sequel II</span>
-      <span class="tag">PacBio Revio</span>
-      <span class="tag">Illumina NovaSeq 6000</span>
-      <span class="tag">Element Aviti</span>
-    </div>
-  </div>
+      <div class="skill-group">
+        <h3>Wet Lab Techniques</h3>
+        <ul class="tags">
+          <li>HMW DNA extraction</li><li>Bionano OGM</li><li>Library preparation</li>
+          <li>ddPCR</li><li>PCR</li><li>Gel electrophoresis</li><li>Cell culture</li>
+          <li>Microdissection</li><li>Microinjection</li><li>CRISPR</li>
+          <li>In situ hybridization</li><li>RNA extraction</li><li>Bacterial cloning</li>
+        </ul>
+      </div>
+    </section>
 
-  <div class="skill-group">
-    <h4>Analysis Methods</h4>
-    <div class="tags">
-      <span class="tag">De novo genome assembly</span>
-      <span class="tag">Hybrid scaffolding</span>
-      <span class="tag">Structural variant discovery</span>
-      <span class="tag">Variant calling &amp; joint genotyping</span>
-      <span class="tag">PCA-based genotyping</span>
-      <span class="tag">ML phylogenetics</span>
-      <span class="tag">Population genetics (Fst, dXY)</span>
-      <span class="tag">Genome alignment</span>
-    </div>
-  </div>
+    <!-- ---------- EXPERIENCE ---------- -->
+    <section id="experience" class="section">
+      <h2 class="section-title">Experience &amp; Education</h2>
 
-  <div class="skill-group">
-    <h4>Wet Lab Techniques</h4>
-    <div class="tags">
-      <span class="tag">HMW DNA extraction</span>
-      <span class="tag">Bionano OGM</span>
-      <span class="tag">Library preparation</span>
-      <span class="tag">ddPCR</span>
-      <span class="tag">PCR</span>
-      <span class="tag">Gel electrophoresis</span>
-      <span class="tag">Cell culture</span>
-      <span class="tag">Microdissection</span>
-      <span class="tag">Microinjection</span>
-      <span class="tag">CRISPR</span>
-      <span class="tag">In situ hybridization</span>
-      <span class="tag">RNA extraction</span>
-      <span class="tag">Bacterial cloning</span>
-    </div>
-  </div>
-</section>
+      <ol class="timeline">
+        <li class="timeline-item">
+          <span class="timeline-date">Jun 2026 &ndash; Present</span>
+          <div>
+            <h3>Postdoctoral Researcher &mdash; McGrath Lab, Georgia Tech</h3>
+            <p>Characterizing a candidate lncRNA sex-determining gene identified during my
+              dissertation, surveying additional species for the transposable element derived
+              indels hypothesized to have conferred sex-determining function. Testing for
+              sex-specific expression differences with whole-mount ISH/FISH in developing cichlid
+              embryos. Building a near-isogenic line to isolate Y-linked allelic effects from
+              autosomal background variation in a backcross mapping population.</p>
+          </div>
+        </li>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <h2>Experience &amp; Education</h2>
+        <li class="timeline-item">
+          <span class="timeline-date">Aug 2020 &ndash; May 2026</span>
+          <div>
+            <h3>PhD Student &mdash; McGrath Lab, Georgia Tech</h3>
+            <p>Lead researcher on structural variant discovery in Lake Malawi cichlids. Built
+              computational pipelines, assembled genomes, and developed optical genome mapping
+              protocols. Published first-author paper in <em>eLife</em>.</p>
+          </div>
+        </li>
 
-  <div class="timeline-item">
-    <div class="date">June 2026 &ndash; Present</div>
-    <h3>Postdoctoral Researcher &mdash; McGrath Lab, Georgia Tech</h3>
-    <p>Characterizing a candidate lncRNA sex-determining gene identified during my dissertation, surveying additional species for the transposable element derived indels hypothesized to have conferred sex-determining function. Testing for sex-specific expression differences with whole-mount ISH/FISH in developing cichlid embryos. Building a near-isogenic line to isolate Y-linked allelic effects from autosomal background variation in a backcross mapping population.</p>
-  </div>
+        <li class="timeline-item">
+          <span class="timeline-date">Mar 2018 &ndash; Jul 2020</span>
+          <div>
+            <h3>Research Assistant &mdash; CFAR, UC San Diego</h3>
+            <p>HIV reservoir characterization from patient tissues using ddPCR and sequence
+              alignment. Managed undergraduate research team.</p>
+          </div>
+        </li>
 
-  <div class="timeline-item">
-    <div class="date">Aug 2020 &ndash; May 2026</div>
-    <h3>PhD Student &mdash; McGrath Lab, Georgia Tech</h3>
-    <p>Lead researcher on structural variant discovery in Lake Malawi cichlids. Built computational pipelines, assembled genomes, and developed OGM protocols. Published first-author paper in eLife.</p>
-  </div>
+        <li class="timeline-item">
+          <span class="timeline-date">Sep 2016 &ndash; Dec 2019</span>
+          <div>
+            <h3>B.S. Molecular Biology &mdash; UC San Diego</h3>
+            <p>Undergraduate training in molecular biology with research experience starting
+              sophomore year.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
 
-  <div class="timeline-item">
-    <div class="date">Mar 2018 &ndash; Jul 2020</div>
-    <h3>Research Assistant &mdash; CFAR, UC San Diego</h3>
-    <p>HIV reservoir characterization from patient tissues using ddPCR and sequence alignment. Managed undergraduate research team.</p>
-  </div>
+    <footer class="footer">
+      <p>
+        <a href="mailto:nkumar317@gatech.edu">nkumar317@gatech.edu</a>
+        <span class="dot">&middot;</span>
+        <a href="https://github.com/KmNike" target="_blank" rel="noopener">GitHub</a>
+        <span class="dot">&middot;</span>
+        <a href="https://orcid.org/0000-0003-1932-3910" target="_blank" rel="noopener">ORCID</a>
+      </p>
+      <p class="copyright">&copy; <span data-year></span> Nikesh M. Kumar</p>
+    </footer>
 
-  <div class="timeline-item">
-    <div class="date">Sep 2016 &ndash; Dec 2019</div>
-    <h3>B.S. Molecular Biology &mdash; UC San Diego</h3>
-    <p>Undergraduate training in molecular biology with research experience starting sophomore year.</p>
-  </div>
-</section>
+  </main>
+</div>
 
-<!-- FOOTER -->
-<footer>
-  <p>
-    <a href="mailto:nkumar317@gatech.edu">nkumar317@gatech.edu</a> &nbsp;&middot;&nbsp;
-    <a href="https://github.com/KmNike">GitHub</a>
-  </p>
-  <p style="margin-top: 8px; opacity: 0.6; font-size: 0.78rem;">&copy; 2026 Nikesh M. Kumar</p>
-</footer>
-
-<!-- Smooth scroll + active nav -->
-<script>
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
-
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('nav a');
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
-  });
-  navLinks.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-  });
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
