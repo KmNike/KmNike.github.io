@@ -22,18 +22,20 @@
    ========================================================================== */
 
 :root {
-  /* ---- Color ----
-     Palette is drawn from Aulonocara: deep-water blue and the yellow
-     flash on a male's flank. Change these six values to re-skin the site. */
-  --ink:        #0e1c24;   /* darkest text */
-  --ink-soft:   #33454f;   /* body text */
-  --muted:      #6a7c86;   /* captions, dates, secondary text */
-  --paper:      #f3f6f6;   /* page background */
-  --surface:    #ffffff;   /* cards */
-  --rule:       #dde4e6;   /* hairlines and borders */
-  --accent:     #17697f;   /* links, active nav, headings accent */
-  --accent-ink: #0f4c5c;   /* accent on hover */
-  --flare:      #c8871a;   /* the inverted block, stat numbers. Use sparingly. */
+  /* ---- Color: "Sage & Orchid" (active) ----
+     Forest green carries the interface; orchid is the one warm note and
+     appears in only two places, the stat numbers and the inverted block.
+     Two alternate palettes are at the bottom of this section. To use one,
+     copy its values over the ones here. */
+  --ink:        #1e3a32;   /* darkest text - deep forest */
+  --ink-soft:   #3f5b52;   /* body text */
+  --muted:      #5f7067;   /* captions, dates, secondary text */
+  --paper:      #edefe7;   /* page background - pale sage beige */
+  --surface:    #f8f9f4;   /* cards */
+  --rule:       #d5dcd1;   /* hairlines and borders */
+  --accent:     #2f6f62;   /* links, active nav */
+  --accent-ink: #1e4f45;   /* accent on hover */
+  --flare:      #8e6fa8;   /* orchid. Stat numbers and the inversion. Sparingly. */
 
   /* ---- Type ---- */
   --font-display: "Newsreader", Georgia, serif;
@@ -50,28 +52,59 @@
   /* ---- Spacing & shape ---- */
   --space:        1rem;
   --section-gap:  4.5rem;
-  --radius:       6px;
+  --radius:       8px;
   --sidebar-w:    280px;
   --content-max:  720px;
 
-  --shadow: 0 1px 2px rgba(14, 28, 36, 0.05),
-            0 4px 16px rgba(14, 28, 36, 0.04);
+  --shadow: 0 1px 2px rgba(30, 58, 50, 0.06),
+            0 4px 16px rgba(30, 58, 50, 0.05);
 }
 
 /* ---- Dark theme ----
    Applied when <html data-theme="dark">. The toggle button sets this. */
 :root[data-theme="dark"] {
-  --ink:        #eef4f5;
-  --ink-soft:   #c2cfd4;
-  --muted:      #8397a0;
-  --paper:      #0d1a21;
-  --surface:    #14252e;
-  --rule:       #253b45;
-  --accent:     #5cb9cf;
-  --accent-ink: #8ad3e4;
-  --flare:      #e0a63c;
+  --ink:        #e8efe8;
+  --ink-soft:   #c0d0c9;
+  --muted:      #7e938c;
+  --paper:      #131f22;   /* deep blue-green */
+  --surface:    #1b2a2d;
+  --rule:       #2c3f42;
+  --accent:     #7fc9b4;   /* mint */
+  --accent-ink: #a6dccb;
+  --flare:      #c9a2d8;   /* pastel orchid */
   --shadow: none;
 }
+
+/* ==========================================================================
+   ALTERNATE PALETTES
+
+   To switch, copy a block's light values over the ones in :root above, and
+   its dark values over :root[data-theme="dark"]. Nothing else changes.
+
+   ---- B. "Harvest" - beige, warm brown, burnt orange, sage ----
+   LIGHT                        DARK
+   --ink:        #3a2b22;       --ink:        #f0e7dd;
+   --ink-soft:   #5a4639;       --ink-soft:   #d3c3b4;
+   --muted:      #8d7867;       --muted:      #9a8778;
+   --paper:      #f1ebe1;       --paper:      #1e1815;
+   --surface:    #faf6ef;       --surface:    #2a221d;
+   --rule:       #ded2c2;       --rule:       #3b302a;
+   --accent:     #a5643c;       --accent:     #d9a075;
+   --accent-ink: #7f4a2b;       --accent-ink: #e8b892;
+   --flare:      #6e8b6a;       --flare:      #9dbe97;
+
+   ---- C. "Deep Water" - navy, teal, mint ----
+   LIGHT                        DARK
+   --ink:        #16293a;       --ink:        #e6eef3;
+   --ink-soft:   #35506a;       --ink-soft:   #b9cbd8;
+   --muted:      #6f8598;       --muted:      #7e94a4;
+   --paper:      #edf1f4;       --paper:      #0f1c26;
+   --surface:    #ffffff;       --surface:    #182a36;
+   --rule:       #d6dfe6;       --rule:       #273c4a;
+   --accent:     #2c6e8c;       --accent:     #79c4d6;
+   --accent-ink: #1c5069;       --accent-ink: #9fd9e8;
+   --flare:      #56a68c;       --flare:      #9fd9c2;
+   ========================================================================== */
 
 
 /* ==========================================================================
